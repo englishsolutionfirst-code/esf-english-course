@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ESF English Course | English Learning Blog</title>
+
+    <meta name="description" content="English learning tips, IELTS strategies, TOEFL, TOEIC, PTE, Business English and General English resources from ESF English Course.">
+
+    <style>
+        :root {
+            --navy: #0b1f3a;
+            --blue: #173f67;
+            --gold: #c9a227;
+            --light: #f7f9fc;
+            --text: #263445;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--text);
+            background: var(--light);
+            line-height: 1.7;
+        }
+
+        header {
+            background: var(--navy);
+            color: var(--white);
+            padding: 22px 20px;
+        }
+
+        .nav {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .brand {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .brand span {
+            color: var(--gold);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--navy), var(--blue));
+            color: white;
+            text-align: center;
+            padding: 75px 20px;
+        }
+
+        .eyebrow {
+            color: var(--gold);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            font-size: 18px;
+            opacity: 0.92;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            color: var(--navy);
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #667085;
+        }
+
+        .categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .category {
+            background: white;
+            border: 1px solid #dce3ec;
+            border-radius: 30px;
+            padding: 9px 18px;
+            color: var(--navy);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .articles {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(11, 31, 58, 0.08);
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+        }
+
+        .card-image {
+            height: 190px;
+            background: linear-gradient(135deg, var(--navy), var(--blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 42px;
+            font-weight: 700;
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .tag {
+            color: var(--gold);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card h3 {
+            color: var(--navy);
+            font-size: 21px;
+            line-height: 1.4;
+            margin: 10px 0;
+        }
+
+        .card p {
+            color: #667085;
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        .read-more {
+            color: var(--blue);
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .read-more:hover {
+            color: var(--gold);
+        }
+
+        .cta {
+            background: var(--navy);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .cta h2 {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .cta p {
+            max-width: 650px;
+            margin: 0 auto 25px;
+            opacity: 0.9;
+        }
+
+        .button {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            text-decoration: none;
+            font-weight: 700;
+            padding: 13px 25px;
+            border-radius: 8px;
+        }
+
+        footer {
+            background: #071529;
+            color: #b8c2cf;
+            text-align: center;
+            padding: 25px 20px;
+            font-size: 13px;
+        }
+
+        @media (max-width: 800px) {
+            .articles {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .nav {
+                flex-direction: column;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .articles {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 55px 20px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="nav">
+        <div class="brand">ESF <span>English Course</span></div>
+
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="#articles">Blog</a>
+            <a href="../index.html#programs">Programs</a>
+            <a href="../index.html#contact">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="eyebrow">ESF ENGLISH COURSE</div>
+
+    <h1>English Learning Blog</h1>
+
+    <p>
+        Practical English learning tips, IELTS strategies,
+        exam preparation and useful resources to help you achieve your goals.
+    </p>
+</section>
+
+<main class="container" id="articles">
+
+    <div class="section-title">
+        <h2>Latest Articles</h2>
+        <p>Improve your English with practical tips and expert guidance.</p>
+    </div>
+
+    <div class="categories">
+        <div class="category">IELTS</div>
+        <div class="category">TOEFL</div>
+        <div class="category">TOEIC</div>
+        <div class="category">PTE</div>
+        <div class="category">General English</div>
+        <div class="category">Business English</div>
+    </div>
+
+    <div class="articles">
+
+        <article class="card">
+            <div class="card-image">IELTS</div>
+
+            <div class="card-content">
+                <div class="tag">IELTS Reading</div>
+
+                <h3>
+                    10 IELTS Reading Strategies That Really Work for Band 7+
+                </h3>
+
+                <p>
+                    Learn practical strategies to improve your reading
+                    speed, accuracy and confidence in the IELTS Reading test.
+                </p>
+
+                <a class="read-more"
+                   href="10-ielts-reading-strategies.html">
+                    Read Article →
+                </a>
+            </div>
+        </article>
+
+
+        <article class="card">
+            <div class="card-image">SPEAK</div>
+
+            <div class="card-content">
+                <div class="tag">IELTS Speaking</div>
+
+                <h3>
+                    How to Improve Your IELTS Speaking Score
+                </h3>
+
+                <p>
+                    Discover useful techniques, collocations and speaking
+                    strategies for achieving a higher IELTS Speaking band.
+                </p>
+
+                <a class="read-more" href="#">
+                    Coming Soon →
+                </a>
+            </div>
+        </article>
+
+
+        <article class="card">
+            <div class="card-image">WRITE</div>
+
+            <div class="card-content">
+                <div class="tag">IELTS Writing</div>
+
+                <h3>
+                    IELTS Writing Task 2: How to Build a Band 7 Essay
+                </h3>
+
+                <p>
+                    Understand how to organise your ideas, use complex
+                    sentences and develop strong arguments.
+                </p>
+
+                <a class="read-more" href="#">
+                    Coming Soon →
+                </a>
+            </div>
+        </article>
+
+
+        <article class="card">
+            <div class="card-image">TOEFL</div>
+
+            <div class="card-content">
+                <div class="tag">TOEFL</div>
+
+                <h3>
+                    Effective TOEFL Preparation Strategies
+                </h3>
+
+                <p>
+                    Practical preparation techniques to help you approach
+                    the TOEFL test with greater confidence.
+                </p>
+
+                <a class="read-more" href="#">
+                    Coming Soon →
+                </a>
+            </div>
+        </article>
+
+
+        <article class="card">
+            <div class="card-image">TOEIC</div>
+
+            <div class="card-content">
+                <div class="tag">TOEIC</div>
+
+                <h3>
+                    TOEIC Listening and Reading Tips
+                </h3>
+
+                <p>
+                    Learn useful strategies for improving your TOEIC
+                    Listening and Reading performance.
+                </p>
+
+                <a class="read-more" href="#">
+                    Coming Soon →
+                </a>
+            </div>
+        </article>
+
+
+        <article class="card">
+            <div class="card-image">ENGLISH</div>
+
+            <div class="card-content">
+                <div class="tag">General English</div>
+
+                <h3>
+                    5 Practical Ways to Improve Your English Speaking
+                </h3>
+
+                <p>
+                    Simple but effective techniques you can use every day
+                    to become a more confident English speaker.
+                </p>
+
+                <a class="read-more" href="#">
+                    Coming Soon →
+                </a>
+            </div>
+        </article>
+
+    </div>
+</main>
+
+<section class="cta">
+    <h2>Ready to Improve Your English?</h2>
+
+    <p>
+        Join ESF English Course and learn English with experienced
+        guidance and practical strategies.
+    </p>
+
+    <a class="button" href="../index.html">
+        Explore ESF Programs
+    </a>
+</section>
+
+<footer>
+    © 2026 ESF English Course. All Rights Reserved.
+</footer>
+
+</body>
+</html>
