@@ -210,6 +210,10 @@
 
         </form>
 <iframe name="hidden_iframe" style="display:none;"></iframe>
+   <div id="success-message" style="display:none; text-align:center; padding:30px;">
+    <h2>Thank You!</h2>
+    <p>Terima kasih, absensi Anda sudah terinput.</p>
+</div>
     </div>
 
 </main>
@@ -217,6 +221,24 @@
 <footer class="footer">
     © 2026 ESF English Course — Learn English, Achieve More.
 </footer>
+<script>
+const attendanceForm = document.querySelector("form");
+const hiddenIframe = document.querySelector('iframe[name="hidden_iframe"]');
+const successMessage = document.getElementById("success-message");
 
+let formSubmitted = false;
+
+attendanceForm.addEventListener("submit", function () {
+    formSubmitted = true;
+});
+
+hiddenIframe.addEventListener("load", function () {
+    if (formSubmitted) {
+        attendanceForm.style.display = "none";
+        successMessage.style.display = "block";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+});
+</script>
 </body>
 </html>
