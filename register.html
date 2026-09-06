@@ -552,14 +552,15 @@ communication with ESF English Course.
 </div>
 
 </form>
-
+<iframe name="hidden_iframe" style="display:none;"></iframe>
 <div id="success-message" style="display:none; text-align:center; padding:30px;">
     <h2 style="color:#0b1f3a;">Registration Successful!</h2>
     <p>Thank you for registering with ESF English Course.</p>
     <p>Our team will contact you via WhatsApp to confirm your course details.</p>
 </div>
 
-<iframe name="hidden_iframe" style="display:none;"></iframe>
+
+   
 
 </div>
 
@@ -571,6 +572,24 @@ communication with ESF English Course.
 © 2026 <span>ESF English Course</span> — Learn English. Achieve More.
 
 </footer>
+<script>
+const registrationForm = document.querySelector("form");
+const hiddenIframe = document.querySelector('iframe[name="hidden_iframe"]');
+const successMessage = document.getElementById("success-message");
 
+let formSubmitted = false;
+
+registrationForm.addEventListener("submit", function () {
+    formSubmitted = true;
+});
+
+hiddenIframe.addEventListener("load", function () {
+    if (formSubmitted) {
+        registrationForm.style.display = "none";
+        successMessage.style.display = "block";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+});
+</script>
 </body>
 </html>
