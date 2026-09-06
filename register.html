@@ -577,12 +577,18 @@ const registrationForm = document.querySelector("form");
 const hiddenIframe = document.querySelector('iframe[name="hidden_iframe"]');
 const successMessage = document.getElementById("success-message");
 
+let formSubmitted = false;
+
 registrationForm.addEventListener("submit", function () {
-    setTimeout(function () {
+    formSubmitted = true;
+});
+
+hiddenIframe.addEventListener("load", function () {
+    if (formSubmitted) {
         registrationForm.style.display = "none";
         successMessage.style.display = "block";
         window.scrollTo({ top: 0, behavior: "smooth" });
-    }, 1500);
+    }
 });
 </script>
 </html>
