@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Register for an English Course | ESF English Course</title>
+
+<meta name="description" content="Register for IELTS, TOEFL, TOEIC, PTE, Business English, General English and English for Kids at ESF English Course.">
+
+<style>
+:root {
+    --navy: #0b1f3a;
+    --blue: #173f67;
+    --gold: #c9a227;
+    --light: #f7f9fc;
+    --text: #263445;
+    --muted: #667085;
+    --white: #ffffff;
+    --border: #e1e7ef;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--light);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+header {
+    background: var(--navy);
+    color: white;
+    padding: 22px 20px;
+}
+
+.header-inner {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: .5px;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+.back-link {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.hero {
+    background: white;
+    text-align: center;
+    padding: 55px 20px 35px;
+}
+
+.eyebrow {
+    color: var(--gold);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.hero h1 {
+    color: var(--navy);
+    font-size: 38px;
+    margin: 0 0 12px;
+}
+
+.hero p {
+    max-width: 700px;
+    margin: auto;
+    color: var(--muted);
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto 70px;
+    padding: 0 20px;
+}
+
+.form-card {
+    background: white;
+    border-radius: 14px;
+    padding: 40px;
+    box-shadow: 0 8px 30px rgba(11,31,58,.08);
+    border: 1px solid var(--border);
+}
+
+.section-title {
+    color: var(--navy);
+    font-size: 21px;
+    margin: 0 0 22px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--gold);
+}
+
+.form-section {
+    margin-bottom: 38px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group.full {
+    grid-column: 1 / -1;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 7px;
+    color: var(--text);
+    font-size: 14px;
+}
+
+.required {
+    color: #c0392b;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: inherit;
+    color: var(--text);
+    background: white;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(23,63,103,.08);
+}
+
+textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.info-box {
+    background: #f7f9fc;
+    border-left: 4px solid var(--gold);
+    padding: 15px 18px;
+    margin-bottom: 22px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.package-box {
+    background: #f7f9fc;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px;
+    margin-top: 10px;
+}
+
+.package-box strong {
+    color: var(--navy);
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.checkbox-group input {
+    width: auto;
+    margin-top: 5px;
+}
+
+.checkbox-group label {
+    font-weight: 400;
+    margin: 0;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.submit-area {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.submit-btn {
+    width: 100%;
+    border: none;
+    background: var(--navy);
+    color: white;
+    padding: 16px 25px;
+    border-radius: 9px;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.submit-btn:hover {
+    background: var(--blue);
+}
+
+.note {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 12px;
+}
+
+footer {
+    background: var(--navy);
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 13px;
+}
+
+footer span {
+    color: var(--gold);
+}
+
+@media (max-width: 700px) {
+
+    .header-inner {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .form-card {
+        padding: 25px 20px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .form-group.full {
+        grid-column: auto;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-inner">
+        <div class="logo">ESF <span>English Course</span></div>
+        <a class="back-link" href="index.html">← Back to Home</a>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="eyebrow">ESF ENGLISH COURSE</div>
+
+    <h1>Register for Your Course</h1>
+
+    <p>
+        Complete the registration form below and our team will guide you
+        through the next step of your enrollment.
+    </p>
+</section>
+
+<div class="container">
+
+<div class="form-card">
+
+<form>
+
+<!-- STUDENT INFORMATION -->
+
+<div class="form-section">
+
+<h2 class="section-title">1. Student Information</h2>
+
+<div class="form-grid">
+
+<div class="form-group">
+<label>Full Name <span class="required">*</span></label>
+<input type="text" name="full_name" placeholder="Your full name" required>
+</div>
+
+<div class="form-group">
+<label>WhatsApp Number <span class="required">*</span></label>
+<input type="tel" name="whatsapp" placeholder="+62 8xxxxxxxxxx" required>
+</div>
+
+<div class="form-group">
+<label>Email Address <span class="required">*</span></label>
+<input type="email" name="email" placeholder="you@example.com" required>
+</div>
+
+<div class="form-group">
+<label>Age</label>
+<input type="number" name="age" placeholder="Your age">
+</div>
+
+<div class="form-group">
+<label>City / Country</label>
+<input type="text" name="location" placeholder="Example: Jakarta, Indonesia">
+</div>
+
+<div class="form-group">
+<label>Occupation / Status</label>
+<select name="status">
+<option value="">Select one</option>
+<option>Student</option>
+<option>University Student</option>
+<option>Employee</option>
+<option>Business Owner</option>
+<option>Job Seeker</option>
+<option>Other</option>
+</select>
+</div>
+
+</div>
+</div>
+
+
+<!-- PROGRAM -->
+
+<div class="form-section">
+
+<h2 class="section-title">2. Choose Your Program</h2>
+
+<div class="info-box">
+Choose the program you would like to study at ESF English Course.
+</div>
+
+<div class="form-group">
+
+<label>English Program <span class="required">*</span></label>
+
+<select name="program" required>
+
+<option value="">Select your program</option>
+
+<option>IELTS Preparation</option>
+<option>TOEFL Preparation</option>
+<option>TOEIC Preparation</option>
+<option>PTE Preparation</option>
+<option>Business English</option>
+<option>General English</option>
+<option>English for Kids</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<!-- COURSE DETAILS -->
+
+<div class="form-section">
+
+<h2 class="section-title">3. Course Preferences</h2>
+
+<div class="form-grid">
+
+<div class="form-group">
+<label>Class Type <span class="required">*</span></label>
+
+<select name="class_type" required>
+
+<option value="">Select class type</option>
+<option>Private Class</option>
+<option>Small Group Class</option>
+<option>Online Class</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Number of Sessions</label>
+
+<select name="sessions">
+
+<option value="">Select package</option>
+<option>8 Sessions</option>
+<option>12 Sessions</option>
+<option>16 Sessions</option>
+<option>Other</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Current English Level</label>
+
+<select name="level">
+
+<option value="">Select your level</option>
+<option>Beginner</option>
+<option>Elementary</option>
+<option>Pre-Intermediate</option>
+<option>Intermediate</option>
+<option>Upper-Intermediate</option>
+<option>Advanced</option>
+<option>Not sure</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Target Score</label>
+
+<input type="text" name="target_score" placeholder="Example: IELTS Band 7.0">
+
+</div>
+
+<div class="form-group">
+<label>Preferred Learning Day</label>
+
+<select name="preferred_day">
+
+<option value="">Select preferred day</option>
+<option>Monday</option>
+<option>Tuesday</option>
+<option>Wednesday</option>
+<option>Thursday</option>
+<option>Friday</option>
+<option>Saturday</option>
+<option>Sunday</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Preferred Time</label>
+
+<input type="text" name="preferred_time" placeholder="Example: 19:00 - 20:00">
+
+</div>
+
+<div class="form-group full">
+
+<label>Learning Goals / Additional Information</label>
+
+<textarea name="message" placeholder="Tell us about your goals, target test date, or anything else we should know."></textarea>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PAYMENT -->
+
+<div class="form-section">
+
+<h2 class="section-title">4. Payment</h2>
+
+<div class="info-box">
+
+After submitting your registration, you will be guided to the
+secure online payment process.
+
+</div>
+
+<div class="package-box">
+
+<strong>Payment Status</strong>
+
+<p style="margin-bottom:0;">
+Your selected program and package will be confirmed before payment.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- AGREEMENT -->
+
+<div class="checkbox-group">
+
+<input type="checkbox" id="agreement" required>
+
+<label for="agreement">
+I confirm that the information I provide is accurate and I agree to
+be contacted by ESF English Course regarding my registration.
+</label>
+
+</div>
+
+
+<div class="submit-area">
+
+<button type="submit" class="submit-btn">
+Continue to Registration
+</button>
+
+<div class="note">
+Your information will be used only for course registration and
+communication with ESF English Course.
+</div>
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+
+<footer>
+
+© 2026 <span>ESF English Course</span> — Learn English. Achieve More.
+
+</footer>
+
+</body>
+</html>
