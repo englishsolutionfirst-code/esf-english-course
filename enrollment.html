@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Online Enrollment | ESF English Course</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f5f7fa;
+        color: #172b4d;
+    }
+
+    header {
+        background: #0b1f3a;
+        color: white;
+        padding: 28px 20px;
+        text-align: center;
+    }
+
+    header h1 {
+        margin: 0 0 8px;
+        font-size: 30px;
+    }
+
+    header p {
+        margin: 0;
+        color: #dbe4ef;
+    }
+
+    .container {
+        max-width: 760px;
+        margin: 40px auto;
+        padding: 0 20px;
+    }
+
+    .card {
+        background: white;
+        padding: 35px;
+        border-radius: 14px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+        margin-top: 0;
+        color: #0b1f3a;
+    }
+
+    .intro {
+        color: #5d6b7a;
+        line-height: 1.6;
+        margin-bottom: 28px;
+    }
+
+    label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #172b4d;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    input,
+    select {
+        width: 100%;
+        padding: 13px 14px;
+        border: 1px solid #ccd5df;
+        border-radius: 8px;
+        font-size: 15px;
+        background: white;
+    }
+
+    input:focus,
+    select:focus {
+        outline: none;
+        border-color: #d4a017;
+    }
+
+    .days-note {
+        font-size: 13px;
+        color: #6b7785;
+        margin-top: 6px;
+    }
+
+    .payment-box {
+        margin: 28px 0;
+        padding: 20px;
+        background: #f8f3e5;
+        border-left: 4px solid #d4a017;
+        border-radius: 8px;
+    }
+
+    .payment-box h3 {
+        margin-top: 0;
+        color: #0b1f3a;
+    }
+
+    .payment-box p {
+        margin: 8px 0;
+        line-height: 1.5;
+    }
+
+    button {
+        width: 100%;
+        padding: 15px;
+        border: none;
+        border-radius: 8px;
+        background: #d4a017;
+        color: #0b1f3a;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    button:hover {
+        opacity: 0.9;
+    }
+
+    #success-message {
+        display: none;
+        text-align: center;
+        padding: 30px 10px;
+    }
+
+    #success-message h2 {
+        color: #0b1f3a;
+    }
+
+    #success-message p {
+        color: #5d6b7a;
+        line-height: 1.6;
+    }
+
+    footer {
+        text-align: center;
+        padding: 25px 15px;
+        color: #6b7785;
+        font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+        .container {
+            margin: 25px auto;
+        }
+
+        .card {
+            padding: 25px 20px;
+        }
+
+        header h1 {
+            font-size: 25px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>ESF English Course</h1>
+    <p>Online Enrollment</p>
+</header>
+
+<div class="container">
+
+    <div class="card">
+
+        <div id="form-content">
+
+            <h2>Enroll in Your English Course</h2>
+
+            <p class="intro">
+                Please complete the form below. After submitting your enrollment,
+                our team will contact you via WhatsApp to confirm your class details.
+            </p>
+
+            <form
+                id="enrollment-form"
+                action="https://script.google.com/macros/s/AKfycbxH56uO6RA55D88XnPt9dvvsKEdHd4GBqC-9ky8A0fxIe8DdewxNsM9HNkBxV15kM3g6w/exec"
+                method="POST"
+                target="hidden_iframe"
+            >
+
+                <div class="form-group">
+                    <label for="fullName">Full Name *</label>
+                    <input type="text" id="fullName" name="fullName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="whatsapp">WhatsApp Number *</label>
+                    <input type="tel" id="whatsapp" name="whatsapp" placeholder="+62..." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cityCountry">City / Country *</label>
+                    <input type="text" id="cityCountry" name="cityCountry" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="occupation">Occupation / Status *</label>
+                    <input type="text" id="occupation" name="occupation"
+                           placeholder="Student, Employee, Business Owner, etc." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="program">Program *</label>
+                    <select id="program" name="program" required>
+                        <option value="">-- Select Program --</option>
+                        <option value="IELTS Preparation">IELTS Preparation</option>
+                        <option value="TOEFL Preparation">TOEFL Preparation</option>
+                        <option value="TOEIC Preparation">TOEIC Preparation</option>
+                        <option value="PTE Preparation">PTE Preparation</option>
+                        <option value="Business English">Business English</option>
+                        <option value="General English">General English</option>
+                        <option value="English for Kids">English for Kids</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="classType">Class Type *</label>
+                    <select id="classType" name="classType" required>
+                        <option value="">-- Select Class Type --</option>
+                        <option value="Private Online">Private Online</option>
+                        <option value="Private Offline">Private Offline</option>
+                        <option value="Group Online">Group Online</option>
+                        <option value="Group Offline">Group Offline</option>
+                        <option value="Regular">Regular</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="sessions">Session *</label>
+                    <select id="sessions" name="sessions" required>
+                        <option value="">-- Select Session --</option>
+                        <option value="10 Sessions">10 Sessions</option>
+                        <option value="16 Sessions">16 Sessions</option>
+                        <option value="24 Sessions">24 Sessions</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Preferred Days *</label>
+
+                    <select id="day1" required>
+                        <option value="">-- Select Day 1 --</option>
+                        <option>Monday</option>
+                        <option>Tuesday</option>
+                        <option>Wednesday</option>
+                        <option>Thursday</option>
+                        <option>Friday</option>
+                        <option>Saturday</option>
+                        <option>Sunday</option>
+                    </select>
+
+                    <br><br>
+
+                    <select id="day2">
+                        <option value="">-- Select Day 2 (Optional) --</option>
+                        <option>Monday</option>
+                        <option>Tuesday</option>
+                        <option>Wednesday</option>
+                        <option>Thursday</option>
+                        <option>Friday</option>
+                        <option>Saturday</option>
+                        <option>Sunday</option>
+                    </select>
+
+                    <div class="days-note">
+                        You may choose up to 2 preferred days.
+                    </div>
+
+                    <input type="hidden" id="preferredDays" name="preferredDays">
+                </div>
+
+                <div class="form-group">
+                    <label for="preferredTime">Preferred Time *</label>
+                    <input type="text" id="preferredTime" name="preferredTime"
+                           placeholder="Example: 19:00 - 20:00" required>
+                </div>
+
+                <div class="payment-box">
+                    <h3>Payment Information</h3>
+
+                    <p>
+                        Payment can be made by bank transfer after your enrollment
+                        has been confirmed by ESF English Course.
+                    </p>
+
+                    <p><strong>Bank:</strong> BCA</p>
+                    <p><strong>Account Number:</strong> 2586570088</p>
+                    <p><strong>Account Name:</strong> Rakhel Elly Rudyanto</p>
+                </div>
+
+                <button type="submit">
+                    Submit Enrollment
+                </button>
+
+            </form>
+
+        </div>
+
+        <div id="success-message">
+            <h2>Thank You!</h2>
+            <p>
+                Your enrollment has been successfully submitted.
+            </p>
+            <p>
+                ESF English Course will contact you via WhatsApp
+                to confirm your class details.
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+<iframe name="hidden_iframe" style="display:none;"></iframe>
+
+<footer>
+    © 2026 ESF English Course — Learn English. Achieve More.
+</footer>
+
+<script>
+const enrollmentForm = document.getElementById("enrollment-form");
+const hiddenIframe = document.querySelector('iframe[name="hidden_iframe"]');
+const successMessage = document.getElementById("success-message");
+const formContent = document.getElementById("form-content");
+
+let formSubmitted = false;
+
+enrollmentForm.addEventListener("submit", function(event) {
+
+    const day1 = document.getElementById("day1").value;
+    const day2 = document.getElementById("day2").value;
+
+    if (day2 && day1 === day2) {
+        event.preventDefault();
+        alert("Please choose two different preferred days.");
+        return;
+    }
+
+    document.getElementById("preferredDays").value =
+        day2 ? day1 + " & " + day2 : day1;
+
+    formSubmitted = true;
+});
+
+hiddenIframe.addEventListener("load", function() {
+
+    if (formSubmitted) {
+        formContent.style.display = "none";
+        successMessage.style.display = "block";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+});
+</script>
+
+</body>
+</html>
