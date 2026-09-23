@@ -292,8 +292,61 @@ function score(){
     return s;
 }
 function level(s){if(s<=5)return ['Foundation / Developing','The result suggests that you would benefit from strengthening core English skills before or alongside IELTS-focused preparation.'];if(s<=9)return ['Developing','The result suggests that you have developing English skills and would benefit from structured IELTS preparation.'];if(s<=13)return ['Intermediate','The result suggests that you have a workable English foundation and can benefit from focused IELTS strategies and regular practice.'];if(s<=16)return ['Upper-Intermediate','The result suggests that you have a solid English foundation and may benefit from targeted IELTS preparation.'];return ['Advanced','The result suggests strong performance on this short diagnostic. A full IELTS-style assessment is still needed for a more complete picture.']}
-document.getElementById('testForm').addEventListener('submit',e=>{e.preventDefault();if(!document.getElementById('writing').value.trim()){alert('Please complete the Writing task before checking your result.');return}const s=score(),[lv,ex]=level(s);document.getElementById('scoreText').textContent='Listening + Reading: '+s+'/20';document.getElementById('levelText').textContent=lv;document.getElementById('resultExplanation').textContent=ex+' Writing should be reviewed separately by a teacher.';const r=document.getElementById('result');r.style.display='block';r.scrollIntoView({behavior:'smooth',block:'start'})});
-document.getElementById('copyWriting').addEventListener('click',async()=>{const text='ESF IELTS Diagnostic Writing Response\nName: '+document.getElementById('name').value+'\n\n'+writing.value;try{await navigator.clipboard.writeText(text);alert('Your Writing response has been copied. You can paste it into WhatsApp or email to ESF.')}catch(e){writing.select();document.execCommand('copy');alert('Your Writing response has been copied.')}});
+document.getElementById('testForm').addEventListener('submit',async e=>{
+    e.preventDefault();
+
+    if(!document.getElementById('writing').value.trim()){
+        alert('Please complete the Writing task before checking your result.');
+        return;
+    }
+
+    const s=score();
+    const [lv,ex]=level(s);
+
+    let listeningScore=0;
+    let readingScore=0;
+
+    for(let i=1;i<=10;i++){
+        const value=getValue('l'+i);
+        const answer=answers['l'+i];
+        if(Array.isArray(answer)){
+            if(answer.includes(value)) listeningScore++;
+        }
+    }
+
+    for(let i=11;i<=20;i++){
+        const value=getValue('r'+i);
+        if(value===answers['r'+i]) readingScore++;
+    }
+
+    document.getElementById('scoreText').textContent='Listening + Reading: '+s+'/20';
+    document.getElementById('levelText').textContent=lv;
+    document.getElementById('resultExplanation').textContent=ex+' Writing should be reviewed separately by a teacher.';
+
+    const r=document.getElementById('result');
+    r.style.display='block';
+    r.scrollIntoView({behavior:'smooth',block:'start'});
+
+    const payload={
+        studentName:document.getElementById('name').value.trim(),
+        contact:document.getElementById('contact').value.trim(),
+        targetBand:document.getElementById('target').value.trim(),
+        listening:listeningScore,
+        reading:readingScore,
+        total:s,
+        level:lv,
+        writing:document.getElementById('writing').value.trim()
+    };
+
+    fetch('https://script.google.com/macros/s/AKfycbwzTY28v5Y_hDuF7p1qAKwQyIAotFA-V302_K9rPjhFl1c3JQovSaMyfYkIIT71Ko78pg/exec',{
+        method:'POST',
+        mode:'no-cors',
+        headers:{
+            'Content-Type':'text/plain;charset=utf-8'
+        },
+        body:JSON.stringify(payload)
+    });
+});
 </script>
 </body>
 </html>
