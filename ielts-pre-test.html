@@ -160,8 +160,23 @@ footer{background:var(--navy);color:#dbe5f2;text-align:center;padding:24px;font-
 const listeningScript = `Good morning. ESF English Course. How can I help you today? Hello. My name is Daniel Lim. I'm interested in taking an IELTS preparation course. Certainly. Would you prefer a private class or a small group class? I think a private class would be better for me because I need flexible lessons. How many sessions are you considering? I'm initially thinking about ten sessions, although I may need more later. I need IELTS because I am planning to study overseas next year. Which skill do you find most difficult at the moment? Speaking is probably my biggest problem. I have ideas, but I sometimes find it difficult to express them clearly. I understand. When are you normally available for lessons? Weekday evenings are best for me because I work during the day. In that case, I would recommend a private IELTS programme with regular speaking practice and personalised feedback.`;
 const answers={l1:'C',l2:'A',l3:'A',l4:'A',l5:'B',l6:'C',l7:'B',l8:'A',r9:'A',r10:'A',r11:'B',r12:'B',r13:'A',r14:'B',r15:'B',r16:'A',r17:'A',r18:'C'};
 let utterance=null;
-function speak(){if(!('speechSynthesis' in window)){document.getElementById('audioStatus').textContent='Your browser does not support audio playback. Please use a modern browser.';return} speechSynthesis.cancel(); utterance=new SpeechSynthesisUtterance(listeningScript); utterance.lang='en-GB'; utterance.rate=.88; utterance.pitch=1; utterance.onstart=()=>document.getElementById('audioStatus').textContent='Listening audio is playing...'; utterance.onend=()=>document.getElementById('audioStatus').textContent='Audio finished. You may continue with the questions.'; speechSynthesis.speak(utterance)}
-document.getElementById('playAudio').addEventListener('click',speak);document.getElementById('stopAudio').addEventListener('click',()=>{speechSynthesis.cancel();document.getElementById('audioStatus').textContent='Audio stopped.'});
+const listeningAudio = new Audio('ESF_IELTS_Listening_Section_1.mp3');
+listeningAudio.preload = 'auto';
+
+document.getElementById('playAudio').addEventListener('click', async () => {
+    try {
+        await listeningAudio.play();
+        document.getElementById('audioStatus').textContent = 'Audio is playing. Listen carefully.';
+    } catch (error) {
+        document.getElementById('audioStatus').textContent = 'Unable to play audio. Please check your device volume.';
+    }
+});
+
+document.getElementById('stopAudio').addEventListener('click', () => {
+    listeningAudio.pause();
+    listeningAudio.currentTime = 0;
+    document.getElementById('audioStatus').textContent = 'Audio stopped. You may play it again.';
+});
 const writing=document.getElementById('writing');writing.addEventListener('input',()=>{const n=writing.value.trim()?writing.value.trim().split(/\s+/).length:0;document.getElementById('wordCount').textContent=n+' words'});
 function getValue(name){const el=document.querySelector('input[name="'+name+'"]:checked');return el?el.value:null}
 function score(){let s=0;Object.entries(answers).forEach(([q,a])=>{if(getValue(q)===a)s++});return s}
